@@ -7,56 +7,34 @@ public class SpawnManager : MonoBehaviour
     private float spawnPosZ = 20;
     private float startDelay = 2;
     private float spawnInterval = 1.5f;
-    public int score = 0;
-    public int lives = 3;
-    public float speed = 40.0f;
-    private float lowerBound = -10.0f;
-
+    private float timer;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Existing invokes...
-        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
-
-        // Log initial stats
-        Debug.Log("Lives = " + lives);
-        Debug.Log("Score = " + score);
+        InvokeRepeating("SpawnRandomAnimal", 3,2.5f);
+        InvokeRepeating("SpawnLeftAnimal", 3, 2.5f);  // Starts after 3s, every 2.5s
+        InvokeRepeating("SpawnRightAnimal", 4, 3.0f); // Starts after 4s, every 3.0s
     }
-
-    // Create a method we can call from other scripts
-    public void UpdateScore(int amount)
-    {
-        score += amount;
-        Debug.Log("Score = " + score);
-    }
-
-    public void UpdateLives(int amount)
-    {
-        lives += amount;
-        Debug.Log("Lives = " + lives);
-
-        if (lives <= 0)
-        {
-            Debug.Log("Game Over");
-        }
-    }
-
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        timer += Time.deltaTime;
 
-        if (transform.position.z < lowerBound)
+        if (timer >= spawnInterval)
         {
-            GameObject.Find("SpawnManager").GetComponent<SpawnManager>().UpdateLives(-1);
-            Destroy(gameObject);
-        }
+            Vector3 spanwnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+            int animalIndex = Random.Range(0, animalPrefab.Length);
+            Instantiate(animalPrefab[animalIndex], spanwnPos, animalPrefab[animalIndex].transform.rotation);
+
+            timer = 0;
+        }    
     }
     void SpawnLeftAnimal()
     {
         int animalIndex = Random.Range(0, animalPrefab.Length);
         Vector3 spawnPos = new Vector3(-spawnRangeX, 0, Random.Range(5, 15));
-        // Rotate 90 degrees to face right
+       
         Vector3 rotation = new Vector3(0, 90, 0);
 
         Instantiate(animalPrefab[animalIndex], spawnPos, Quaternion.Euler(rotation));
@@ -71,6 +49,5 @@ public class SpawnManager : MonoBehaviour
         Vector3 rotation = new Vector3(0, -90, 0);
 
         Instantiate(animalPrefab[animalIndex], spawnPos, Quaternion.Euler(rotation));
-
     }
 }
