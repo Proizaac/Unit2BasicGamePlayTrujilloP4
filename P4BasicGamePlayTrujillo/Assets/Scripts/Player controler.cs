@@ -6,8 +6,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float speed = 10.0f;
     public float xRange = 10.0f;
     public float verticalInput;
-    public float zRange = 15.0f;
-
+    public float zMin;
+    public float zMax;
+    public Transform projectileSpawnPoint;
     public GameObject projectilePrefab;
     
     void Start()
@@ -18,7 +19,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     
     void Update()
     {
-        
+        Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
+
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
@@ -39,13 +41,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
         
-        if (transform.position.z < -zRange)
+        if (transform.position.z < -zMin)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -zMin);
         }
-        if (transform.position.z > zRange)
+        if (transform.position.z > zMax)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
+            transform.position = new Vector3(transform.position.x, transform.position.y, zMax);
         }
 
       

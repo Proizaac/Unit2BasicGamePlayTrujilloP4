@@ -8,12 +8,11 @@ public class DestroyOutOfBounds : MonoBehaviour
     private float sideBound = 30;
     private GameManager gameManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+  
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-        // Update is called once per frame
     void Update()
     {
         if (transform.position.z > topBound)
@@ -22,16 +21,19 @@ public class DestroyOutOfBounds : MonoBehaviour
         }
         else if (transform.position.z < lowerBound)
         {
+          
             gameManager.AddLives(-1);
             Destroy(gameObject);
         }
         else if (transform.position.x > sideBound)
         {
+             
             gameManager.AddLives(-1);
             Destroy(gameObject);
         }
         else if (transform.position.x < -sideBound)
         {
+             
             gameManager.AddLives(-1);
             Destroy(gameObject);
         }
