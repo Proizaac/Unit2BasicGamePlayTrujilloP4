@@ -322,9 +322,7 @@ MonoBehaviour:
   speed: 15
   xRange: 10
   verticalInput: 0
-  zMin: 0
-  zMax: 0
-  projectileSpawnPoint: {fileID: 0}
+  zRange: 15
   projectilePrefab: {fileID: 3147848722754942959, guid: 6400c2761bf3a7e488c10c8cf2be2378, type: 3}
 --- !u!1 &425805626
 GameObject:
@@ -839,9 +837,6 @@ MonoBehaviour:
   - {fileID: 5328374467878460934, guid: 9d18afcb4c2f66741856d3800d6d492e, type: 3}
   - {fileID: 4494238051101649039, guid: 6992107b9501a9e43a0e9dabbdd9daf6, type: 3}
   - {fileID: 264095123282023153, guid: 699e37d81a971cd478c260b33daeb979, type: 3}
-  sideSpawnMinZ: 0
-  sideSpawnMaxZ: 0
-  sideSpawnX: 0
 --- !u!4 &1356091843
 Transform:
   m_ObjectHideFlags: 0
@@ -1210,13 +1205,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2920909219738661269, guid: 6992107b9501a9e43a0e9dabbdd9daf6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3355012577180868904, guid: 6992107b9501a9e43a0e9dabbdd9daf6, type: 3}
       propertyPath: m_TagString
       value: Animal
       objectReference: {fileID: 0}
     - target: {fileID: 3865432842406411099, guid: 6992107b9501a9e43a0e9dabbdd9daf6, type: 3}
       propertyPath: speed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4494238051101649039, guid: 6992107b9501a9e43a0e9dabbdd9daf6, type: 3}
       propertyPath: m_Name
