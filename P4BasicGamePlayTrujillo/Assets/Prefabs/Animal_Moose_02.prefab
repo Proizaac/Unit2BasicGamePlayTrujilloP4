@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5005546044612089587}
   - component: {fileID: 5594775445677241408}
   - component: {fileID: 2476086236612102718}
-  - component: {fileID: -8885882767376853147}
+  - component: {fileID: 2551699886514488072}
   m_Layer: 0
   m_Name: Animal_Moose_02
   m_TagString: Animal
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df9622db382fe842bd0d1f42035280c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
 --- !u!114 &5594775445677241408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18974118, y: 0.4735815, z: 0.41712224}
   m_Center: {x: -0.0006839579, y: 0.22668847, z: 0.057566125}
---- !u!114 &-8885882767376853147
+--- !u!114 &2551699886514488072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -664,9 +664,11 @@ GameObject:
   m_Component:
   - component: {fileID: 403811438435105302}
   - component: {fileID: 7447027972263662953}
+  - component: {fileID: 3800763007606139449}
+  - component: {fileID: 568200137362388340}
   m_Layer: 0
   m_Name: SM_Moose_Male_02
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -742,6 +744,30 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000000014901161, y: 0.045301065, z: 0.16266179}
     m_Extent: {x: 0.10332231, y: 0.2796877, z: 0.26338276}
   m_DirtyAABB: 0
+--- !u!114 &3800763007606139449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557380103392539674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e24f53022242749a2c14173c7869ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &568200137362388340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557380103392539674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e24f53022242749a2c14173c7869ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5144385768398138409
 GameObject:
   m_ObjectHideFlags: 0

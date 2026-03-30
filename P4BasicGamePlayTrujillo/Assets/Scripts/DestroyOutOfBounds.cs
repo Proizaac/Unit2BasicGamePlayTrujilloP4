@@ -1,40 +1,34 @@
 using UnityEngine;
 
-
 public class DestroyOutOfBounds : MonoBehaviour
 {
-    private float topBound = 30;
-    private float lowerBound = -10;
-    private float sideBound = 30;
-    private GameManager gameManager;
+    private float topBound = 30.0f;
+    private float lowerBound = -10.0f;
 
-  
-    void Start()
-    {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
+    private float leftBound = -30.0f;
+    private float rightBound = 30.0f;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update()
     {
+        // Check for Top and Lower bounds (on the z-axis)
         if (transform.position.z > topBound)
         {
             Destroy(gameObject);
         }
         else if (transform.position.z < lowerBound)
         {
-          
-            gameManager.AddLives(-1);
+            Debug.Log("Game Over");
             Destroy(gameObject);
         }
-        else if (transform.position.x > sideBound)
+        // Check for Left and Right bounds (on the x-axis)
+        else if (transform.position.x < leftBound)
         {
-             
-            gameManager.AddLives(-1);
+            Debug.Log("Game Over");
             Destroy(gameObject);
         }
-        else if (transform.position.x < -sideBound)
+        else if (transform.position.x > rightBound)
         {
-             
-            gameManager.AddLives(-1);
+            Debug.Log("Game Over");
             Destroy(gameObject);
         }
     }
